@@ -1,0 +1,589 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root {
+    --paper: #F7F3E8;
+    --ink: #1D2B4F;
+    --red: #A8342E;
+    --gold: #C99A3E;
+    --charcoal: #3A3A38;
+    --line: #DCD4C0;
+
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--paper);
+    color: var(--charcoal);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--ink);
+    line-height: 1.15;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 600; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.99rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+.mono-stat {
+    font-family: var(--font-mono);
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---------- Navigation ---------- */
+
+header {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    font-size: 0.95rem;
+}
+
+.nav-links a {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--red);
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--line);
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.hero h1 {
+    margin: 14px 0 20px;
+}
+
+.hero p.lede {
+    font-size: 1.1rem;
+    max-width: 46ch;
+    margin-bottom: 28px;
+}
+
+/* Annotated-manuscript hero graphic */
+.manuscript {
+    background: #fff;
+    border: 1px solid var(--line);
+    box-shadow: 6px 6px 0 var(--line);
+    padding: 32px 30px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    position: relative;
+}
+
+.manuscript .redline {
+    text-decoration: underline wavy var(--red);
+    text-decoration-thickness: 1px;
+}
+
+.manuscript .comment {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 8px 12px;
+    background: var(--paper);
+    border-left: 3px solid var(--red);
+    font-size: 0.78rem;
+    color: var(--red);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 13px 26px;
+    border-radius: 2px;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.btn-primary:hover {
+    background: var(--red);
+}
+
+.btn-outline {
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+}
+
+.btn-outline:hover {
+    border-color: var(--red);
+    color: var(--red);
+}
+
+/* ---------- Intro grid (text + image) ---------- */
+ 
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+ 
+.intro-grid .section-head {
+    margin-bottom: 0;
+}
+ 
+.intro-image img {
+    width: 100%;
+    border: 1px solid var(--line);
+}
+ 
+
+
+/* ---------- Sections ---------- */
+
+section {
+    padding: 64px 0;
+}
+
+section.alt {
+    background: #FFFDF8;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.section-head {
+    max-width: 60ch;
+    margin-bottom: 40px;
+}
+
+.section-head h2 {
+    margin-top: 10px;
+}
+
+/* ---------- Stat row ---------- */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 12px;
+}
+
+.stat {
+    border-top: 2px solid var(--ink);
+    padding-top: 12px;
+}
+
+.stat .number {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    color: var(--red);
+    display: block;
+}
+
+.stat .label {
+    font-size: 0.9rem;
+    color: var(--charcoal);
+}
+
+/* ---------- Pricing cards ---------- */
+ 
+.pricing-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 8px;
+}
+ 
+.price-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 32px 28px;
+}
+ 
+.price-card-highlight {
+    border: 1.5px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--line);
+}
+ 
+.price-amount {
+    font-size: 2.6rem;
+    color: var(--red);
+    margin: 14px 0 4px;
+}
+ 
+.price-note {
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+}
+ 
+.price-features {
+    list-style: none;
+    margin-bottom: 26px;
+}
+ 
+.price-features li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.92rem;
+    margin-bottom: 10px;
+}
+ 
+.price-features li::before {
+    content: "\2014";
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-family: var(--font-mono);
+}
+ 
+
+/* ---------- Contact card ---------- */
+ 
+.contact-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 32px 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 8px;
+}
+ 
+.contact-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+}
+ 
+.contact-value {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--ink);
+}
+ 
+.contact-value:hover {
+    color: var(--red);
+}
+ 
+/* ---------- Steps ---------- */
+ 
+.steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 8px;
+}
+ 
+.steps li {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+ 
+.step-number {
+    font-family: var(--font-mono);
+    font-size: 1.4rem;
+    color: var(--red);
+}
+ 
+.steps h3 {
+    margin-bottom: 4px;
+}
+ 
+.steps p {
+    font-size: 0.95rem;
+}
+
+
+/* ---------- Author bio ---------- */
+ 
+.author-bio {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 48px;
+    align-items: start;
+}
+ 
+.author-photo img {
+    width: 100%;
+    border: 1px solid var(--line);
+}
+ 
+.author-role {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--red);
+    margin: 6px 0 20px;
+}
+ 
+.author-text p {
+    margin-bottom: 16px;
+}
+ 
+
+
+/* ---------- Testimonials ---------- */
+ 
+.testimonial-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 8px;
+}
+ 
+.testimonial {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--red);
+    padding: 26px 28px;
+}
+ 
+.testimonial .quote {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink);
+    line-height: 1.5;
+}
+ 
+.testimonial .attribution {
+    margin-top: 14px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--red);
+}
+ 
+/* ---------- Footer ---------- */
+ 
+footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 40px 0;
+    font-size: 0.9rem;
+}
+ 
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+ 
+footer a:hover {
+    color: var(--gold);
+}
+
+/*-------- Results layout (advantages) ---------- */
+ 
+.results-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 48px;
+    align-items: start;
+    margin-top: 8px;
+}
+ 
+.headline-stat {
+    border-top: 2px solid var(--ink);
+    padding-top: 14px;
+}
+ 
+.headline-stat .number {
+    font-family: var(--font-mono);
+    font-size: 4rem;
+    color: var(--red);
+    display: block;
+    line-height: 1;
+}
+ 
+.headline-stat .label {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    max-width: 30ch;
+}
+ 
+.advantages {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 28px;
+}
+ 
+.advantages li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 0.95rem;
+}
+ 
+.advantages li::before {
+    content: "\2014";
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-family: var(--font-mono);
+}
+
+
+/* ---------- Cards ---------- */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 26px 24px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.95rem;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 40px 0;
+    font-size: 0.9rem;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+footer a:hover {
+    color: var(--gold);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px) {
+    .hero .container {
+        grid-template-columns: 1fr;
+    }
+
+    .stats,
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
