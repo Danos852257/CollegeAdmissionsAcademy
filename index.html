@@ -14,21 +14,22 @@
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="apply.html">Apply</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="about-tutor.html">About Dr. Jan</a></li>
+                <li><a href="about-tutor.html">About</a></li>
                 
             </ul>
+            <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
     </header>
  
  
     <!-- What it is -->
-    <section>
+    <section class="home-intro">
         <div class="container">
             <div class="intro-grid">
                 <div class="section-head">
-                    <p class="eyebrow">What is the Academy?</p>
                     <h2>Fifteen weeks of one-on-one essay coaching</h2>
                     <p style="margin-top: 14px;">
                         The College Admissions Academy pairs students with a dedicated tutor
@@ -86,6 +87,8 @@
             </div>
         </div>
     </section>
+
+
  
     <!-- CTA -->
     <section>

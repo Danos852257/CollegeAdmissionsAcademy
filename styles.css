@@ -80,6 +80,7 @@ header {
 
 nav {
     max-width: 1080px;
+    position: relative;
     margin: 0 auto;
     padding: 18px 24px;
     display: flex;
@@ -128,6 +129,19 @@ nav {
 
 .nav-toggle {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    display: block;
 }
 
 /* ---------- Hero ---------- */
@@ -218,8 +232,12 @@ nav {
     display: grid;
     grid-template-columns: 1.3fr 0.7fr;
     gap: 48px;
-    align-items: center;
+    align-items: start;
     margin-bottom: 40px;
+}
+
+.home-intro {
+    padding-top: 32px;
 }
  
 .intro-grid .section-head {
@@ -246,7 +264,8 @@ section.alt {
 }
 
 .section-head {
-    max-width: 60ch;
+    width: 80%;
+    max-width: none;
     margin-bottom: 40px;
 }
 
@@ -287,6 +306,15 @@ section.alt {
     grid-template-columns: 1fr 1fr;
     gap: 28px;
     margin-top: 8px;
+}
+
+.pricing-options {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.pricing-contact {
+    padding-top: 0;
 }
  
 .price-card {
@@ -574,8 +602,58 @@ footer a:hover {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 800px) {
+    .section-head {
+        width: 100%;
+    }
+
     .hero .container {
         grid-template-columns: 1fr;
+    }
+
+    .intro-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(100px, 32%);
+        gap: 20px;
+        align-items: start;
+    }
+
+    .intro-grid .section-head {
+        display: contents;
+    }
+
+    .intro-grid .section-head h2 {
+        grid-column: 1;
+        grid-row: 1;
+        align-self: center;
+    }
+
+    .intro-grid .intro-image {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .intro-grid .section-head p {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .author-bio {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .pricing-cards,
+    .contact-card {
+        grid-template-columns: 1fr;
+    }
+
+    .results-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .advantages {
+        grid-template-columns: 1fr;
+        gap: 14px;
     }
 
     .stats,
@@ -585,5 +663,29 @@ footer a:hover {
 
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 24px 18px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 8px 14px rgba(29, 43, 79, 0.08);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 0;
+    }
+
+    .nav-toggle {
+        display: flex;
+        flex-shrink: 0;
     }
 }
