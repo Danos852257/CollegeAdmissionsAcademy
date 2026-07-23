@@ -62,6 +62,10 @@ async function populateSiteData() {
         const key = el.getAttribute("data-key");
         if (data[key] !== undefined) {
             el.textContent = data[key];
+
+            if (el.hasAttribute("data-mailto")) {
+                el.href = `mailto:${data[key]}`;
+            }
         }
     });
 
